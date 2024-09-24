@@ -130,7 +130,7 @@ export const updateProfileImageAction = async (
         profileImage: fullPath,
       },
     });
-    revalidatePath("/profile");
+    redirect("/profile");
     return { message: "Profile image updated successfully" };
   } catch (error) {
     return renderError(error);

@@ -42,7 +42,7 @@ model Property {
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
   profile     Profile    @relation(fields: [profileId], references: [clerkId], onDelete: Cascade)
-  profileId   String @db.ObjectId
+  profileId   String 
   favorites    Favorite[] 
   reviews Review[]
   bookings Booking[]
@@ -55,7 +55,7 @@ model Favorite {
   updatedAt DateTime @updatedAt
 
   profile   Profile  @relation(fields: [profileId], references: [clerkId], onDelete: Cascade)
-  profileId String @db.ObjectId
+  profileId String 
 
   property   Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
   propertyId String @db.ObjectId
@@ -65,7 +65,7 @@ model Favorite {
 model Review {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   profile   Profile  @relation(fields: [profileId], references: [clerkId], onDelete: Cascade)
-  profileId String @db.ObjectId
+  profileId String
   property   Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
   propertyId String @db.ObjectId
   rating    Int
@@ -77,7 +77,7 @@ model Review {
 model Booking {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   profile   Profile  @relation(fields: [profileId], references: [clerkId], onDelete: Cascade)
-  profileId String @db.ObjectId
+  profileId String 
   property   Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
   propertyId String @db.ObjectId
   orderTotal     Int
